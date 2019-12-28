@@ -1,0 +1,53 @@
+//HTML logic
+<div>
+    <header><!-- logo + Around --></header>
+    <div> <!-- container -->
+        <Register: React Component />   ---1
+        <Login: React Component />      ---2
+        <Home: React Component />       ---3
+    </div>
+</div>
+
+- We will choose which component to be rendered in the container
+
+//React logic 
+
+App{isLoggedIn state} ---> TopBar(done)
+                    ---> Main  ---> Register (done)/register
+                    \---> Login (done)   /login
+                    \---> Home (done)    /home     ----> Image Posts
+                                                   \----> Video Posts 
+                                                   \-----> Map
+
+
+
+
+//techniques
+//move the elements to the left
+/**
+ 1. display: flex (block element recommended)
+ 2. float: left (block element compatible)
+ 3. text-align: left (inline element)
+ */
+
+ //High-Order component 
+ /**
+  HOC: A function that map component A to component B
+       component A --> function --> component B
+ */
+
+isLoggedIn Data flow:
+1. login state should be stored in App, 
+    because Home and Login component and logout button in the TopBar component all need to access it. 
+2. Then parent passes state down to children via property
+3. Children change the parent's state via callback function
+
+Create button data flow:
+
+CreatePostButton (*Behavior: handle ok)
+       \------Modal (*Event handler: onOk)
+                \------Button (call onOk)
+       \------CreatePostForm(*Data)
+    
+How does parent(CreatePostButton) use the data stored in its child (CreatePostForm)?
+- Use reference
