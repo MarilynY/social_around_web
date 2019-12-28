@@ -1,5 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+This is a cloud and react based social network web application. Users can create image and video posts with messages. 
+Users can check out the nearby posts with gallery view and map view. All the image posts with face can be filtered out by face detection model.
+## View Website
+* Step 1: Open the link https://social-around.firebaseapp.com/
+* Step 2: Unblock Mixed Content in Chrome by clicking the shield icon in the address bar. Then click "Load unsafe scripts" and Done. 
+* Step 3: Refresh the website, register, login and then create your posts now!
+## User Manual
+* Create new posts: click the "Create New Post" button. Then upload your images or videos with specific messages.
+* See nearby posts: click "Image Posts" button, then you will see all the image posts with 200km range.
+* See video posts: click "Video Posts" button, then you will see all the video posts with 200km range.
+* See the image posts with face: click "Faces Around the World", then you will see all the image posts with faces.
+* See the map view of posts: click "Map" button, then you will see image posts when you hover your cursor on red marks, and see the video posts when you click the blue markers.
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 ## Available Scripts
 
 In the project directory, you can run:
