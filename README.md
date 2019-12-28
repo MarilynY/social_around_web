@@ -12,6 +12,7 @@ Users can check out the nearby posts with gallery view and map view. All the ima
 * See the image posts with face: click "Faces Around the World", then you will see all the image posts with faces.
 * See the map view of posts: click "Map" button, then you will see image posts when you hover your cursor on red marks, and see the video posts when you click the blue markers.
 
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 ## Available Scripts
 
