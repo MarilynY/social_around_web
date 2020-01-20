@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs, Spin, Row, Col, Radio } from 'antd';
-import { GEO_OPTIONS, POS_KEY, TOKEN_KEY, AUTH_HEADER, API_ROOT } from '../constants';
+import { GEO_OPTIONS, POS_KEY, TOKEN_KEY, AUTH_HEADER, API_ROOT,POST_TYPE_IMAGE } from '../constants';
 import { GOOG_MAP_KEY } from '../googleApiKey';
 import { Gallery } from './Gallery';
 import { CreatePostButton } from './CreatePostButton';
@@ -8,6 +8,7 @@ import { AroundMap } from './AroundMap';
 
 const { TabPane } = Tabs;
 const RadioGroup = Radio.Group;
+
 
 export class Home extends React.Component {
     state = {
@@ -92,19 +93,37 @@ export class Home extends React.Component {
         })
     }
 
-    getImagePosts = () => {
-        const images = this.state.posts
-            .filter(({type}) => type === 'image')
-            .map(({user, url, message}) => ({
-            user,
-            src: url,
-            thumbnail: url,
-            caption: message,
-            thumbnailWidth: 400,
-            thumbnailHeight: 300
-        }))
-        return <Gallery images={images}/>; //render image posts
+    // getImagePosts = () => {
+    //     const images = this.state.posts
+    //         .filter(({type}) => type === 'image')
+    //         .map(({user, url, message}) => ({
+    //         user,
+    //         src: url,
+    //         thumbnail: url,
+    //         caption: message,
+    //         thumbnailWidth: 400,
+    //         thumbnailHeight: 300
+    //     }))
+    //     return <Gallery images={images}/>; //render image posts
+    // }
+
+    getImagePosts() {
+        const { posts } = this.state;
+        const images = posts
+            .filter((post) => post.type === POST_TYPE_IMAGE)
+            .map((post) => {
+                return {
+                    user: post.user,
+                    src: post.url,
+                    thumbnail: post.url,
+                    caption: post.message,
+                    thumbnailWidth: post.width,
+                    thumbnailHeight: post.height,
+                };
+            });
+        return <Gallery images={images}/>
     }
+
 
     getVideoPosts = () => {
         const videos = this.state.posts 
